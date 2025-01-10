@@ -1,4 +1,4 @@
-module github.com/tklauser/lintcomparestring
+module github.com/tklauser/lintcomparestrings
 
 go 1.23.4
 
