@@ -7,7 +7,7 @@ package main
 import (
 	"golang.org/x/tools/go/analysis/singlechecker"
 
-	"github.com/tklauser/lintcomparestring/comparestrings"
+	"github.com/tklauser/lintcomparestrings/comparestrings"
 )
 
 func main() {
