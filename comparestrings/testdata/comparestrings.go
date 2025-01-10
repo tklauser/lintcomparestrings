@@ -28,9 +28,9 @@ func CmpCompare() {
 
 	a, b := "A", "B"
 	aa, bb := &t{}, &t{}
-	_ = cmp.Compare(a, b)                     // want `use strings.Compare three-way-compare function instead of cmp.Compare`
-	_ = cmp.Compare(aa.String(), bb.String()) // want `use strings.Compare three-way-compare function instead of cmp.Compare`
-	_ = cmp.Compare(adjust(a), adjust(b))     // want `use strings.Compare three-way-compare function instead of cmp.Compare`
+	_ = cmp.Compare(a, b)                     // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
+	_ = cmp.Compare(aa.String(), bb.String()) // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
+	_ = cmp.Compare(adjust(a), adjust(b))     // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
 
 	_ = strings.Compare(a, b)
 	_ = strings.Compare(aa.String(), bb.String())

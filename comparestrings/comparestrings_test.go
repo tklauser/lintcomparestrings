@@ -9,7 +9,7 @@ import (
 
 	"golang.org/x/tools/go/analysis/analysistest"
 
-	"github.com/tklauser/lintcomparestring/comparestrings"
+	"github.com/tklauser/lintcomparestrings/comparestrings"
 )
 
 func TestAllAnalysis(t *testing.T) {
