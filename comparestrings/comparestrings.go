@@ -65,7 +65,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 		pass.Report(analysis.Diagnostic{
 			Pos:     call.Pos(),
 			End:     call.End(),
-			Message: fmt.Sprintf("use strings.Compare three-way-compare function instead of %s", fn.FullName()),
+			Message: fmt.Sprintf("use strings.Compare instead of %s for three-way string comparison", fn.FullName()),
 		})
 	})
 
