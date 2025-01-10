@@ -1,6 +1,6 @@
 module github.com/tklauser/lintcomparestrings
 
-go 1.23.4
+go 1.22.0
 
 require golang.org/x/tools v0.29.0
 
