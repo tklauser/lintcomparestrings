@@ -8,6 +8,9 @@ Using `strings.Compare` to three-way-compare strings is more efficient than
 `cmp.Compare` since Go 1.23, especially for large strings. See
 https://go.dev/issues/61725 and https://go.dev/cl/532195 for details.
 
+Note that this linter will become obsolete once https://go.dev/issues/71270 is
+implemented.
+
 ## Installation
 
     go install github.com/tklauser/lintcomparestrings@latest
