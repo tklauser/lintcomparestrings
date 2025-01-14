@@ -8,8 +8,10 @@
 package comparestrings
 
 import (
+	"bytes"
 	"fmt"
 	"go/ast"
+	"go/format"
 	"go/types"
 
 	"golang.org/x/tools/go/analysis"
@@ -62,10 +64,26 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			return
 		}
 
+		var buf bytes.Buffer
+		format.Node(&buf, pass.Fset, &ast.CallExpr{
+			Fun:  &ast.Ident{Name: "strings.Compare"},
+			Args: call.Args,
+		})
+
 		pass.Report(analysis.Diagnostic{
 			Pos:     call.Pos(),
 			End:     call.End(),
 			Message: fmt.Sprintf("use strings.Compare instead of %s for three-way string comparison", fn.FullName()),
+			SuggestedFixes: []analysis.SuggestedFix{
+				{
+					Message: "Use strings.Compare instead of cmp.Compare",
+					TextEdits: []analysis.TextEdit{{
+						Pos:     n.Pos(),
+						End:     n.End(),
+						NewText: buf.Bytes(),
+					}},
+				},
+			},
 		})
 	})
 
