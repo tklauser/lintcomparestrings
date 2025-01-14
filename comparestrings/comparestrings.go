@@ -18,10 +18,10 @@ import (
 	"golang.org/x/tools/go/types/typeutil"
 )
 
-const Doc = `check whether most efficient three-way-compare functions is used for strings
+const Doc = `check whether the most efficient three-way-compare function is used for strings
 
-Using cmp.Compare to compare strings is less performant than strings.Compare,
-especially for large strings since Go 1.23. See go.dev/issues/61725 and
+Using cmp.Compare to compare strings is less efficient than strings.Compare since Go 1.23,
+especially for large strings. See go.dev/issues/61725 and
 go.dev/cl/532195 for details.`
 
 var Analyzer = &analysis.Analyzer{
