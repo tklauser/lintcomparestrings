@@ -22,9 +22,8 @@ import (
 
 const Doc = `check whether the most efficient three-way-compare function is used for strings
 
-Using cmp.Compare to compare strings is less efficient than strings.Compare since Go 1.23,
-especially for large strings. See go.dev/issues/61725 and
-go.dev/cl/532195 for details.`
+Using strings.Compare to compare strings is more efficient than cmp.Compare since Go 1.23,
+especially for large strings. See go.dev/issues/61725 and go.dev/cl/532195 for details.`
 
 var Analyzer = &analysis.Analyzer{
 	Name:     "comparestring",
