@@ -13,5 +13,5 @@ import (
 )
 
 func TestAllAnalysis(t *testing.T) {
-	analysistest.Run(t, analysistest.TestData(), comparestrings.Analyzer)
+	analysistest.RunWithSuggestedFixes(t, analysistest.TestData(), comparestrings.Analyzer)
 }
