@@ -64,10 +64,27 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			return
 		}
 
+		args := call.Args
+
+		// Add type conversions if arguments are not of basic type string.
+		fmt.Printf("got type %v %T\n", typ, typ)
+		switch typ.(type) {
+		case *types.Named, *types.Alias:
+			args = make([]ast.Expr, 0, len(call.Args))
+			for _, arg := range call.Args {
+				args = append(args, &ast.CallExpr{
+					Fun: &ast.Ident{Name: "string"},
+					Args: []ast.Expr{
+						arg,
+					},
+				})
+			}
+		}
+
 		var buf bytes.Buffer
 		format.Node(&buf, pass.Fset, &ast.CallExpr{
 			Fun:  &ast.Ident{Name: "strings.Compare"},
-			Args: call.Args,
+			Args: args,
 		})
 
 		pass.Report(analysis.Diagnostic{
