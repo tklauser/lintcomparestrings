@@ -66,7 +66,6 @@ func run(pass *analysis.Pass) (interface{}, error) {
 		args := call.Args
 
 		// Add type conversions if arguments are not of basic type string.
-		fmt.Printf("got type %v %T\n", typ, typ)
 		switch typ.(type) {
 		case *types.Named, *types.Alias:
 			args = make([]ast.Expr, 0, len(call.Args))
