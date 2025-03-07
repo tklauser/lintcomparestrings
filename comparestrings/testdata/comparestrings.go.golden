@@ -41,7 +41,7 @@ func CmpCompare() {
 	_ = strings.Compare(a2.String(), b2.String()) // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
 	_ = strings.Compare(adjust(a1), adjust(b1))   // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
 	_ = strings.Compare(string(a3), string(b3))   // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
-	_ = strings.Compare(a4, b4)                   // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
+	_ = strings.Compare(string(a4), string(b4))   // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
 	_ = strings.Compare(string(a5), string(b5))   // want `use strings.Compare instead of cmp.Compare for three-way string comparison`
 
 	_ = strings.Compare(a1, b1)
